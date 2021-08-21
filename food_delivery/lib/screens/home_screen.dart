@@ -4,7 +4,8 @@ import '../data/data.dart';
 import '../widgets/recent_orders.dart';
 import '../models/restaurant.dart';
 import '../widgets/rating_stars.dart';
-import '../screens/restaurant_screen.dart';
+import './restaurant_screen.dart';
+import './cart_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -107,7 +108,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Center(child: Text('Food Delivery')),
         actions: <Widget>[
           TextButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CartScreen(),
+              ),
+            ),
             child: Text(
               'Cart (${currentUser.cart.length})',
               style: TextStyle(
